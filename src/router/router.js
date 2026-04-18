@@ -10,7 +10,7 @@ const router = createRouter({
     routes : [
         {
             path : '/',
-            component : ShowSchedule
+            component : Login
         },
         {
             path : '/showSchedule',
