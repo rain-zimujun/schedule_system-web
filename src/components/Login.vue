@@ -8,6 +8,9 @@
     import {useRouter} from 'vue-router'
     import request from '../utils/request'
 
+    import {defineUser} from '../store/userStore'
+    let user = defineUser()
+
     const router = useRouter()
 
 
@@ -50,6 +53,9 @@
         if(data.code == 200){
             //登录成功,跳转到showschedule页面
             alert('登录成功!')
+            //获取登录的用户信息,更新到pinia中
+            user.uid = data.data.loginUser.uid
+            user.username = data.data.loginUser.username
             router.push('/showSchedule')
         }else if(data.code == 501){
             alert('用户名错误')
